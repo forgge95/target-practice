@@ -6,37 +6,36 @@
                 background-color: black;
                 opacity: 0.8;
             }
-            div.first{
-                text-align: center;
-                color: whitesmoke;
-                border-radius: 15px; 
-                width: auto; 
-                height: auto;
-                padding: 5px 30px 5px 30px; 
-                font-size: 10px;
-            }
             #targetButton {
                 --div-width: 100px;
                 position: absolute;
                 background-color: coral;
                 color: white;
                 transition: .5s top, .5s right;
-                top: 0;  
+                top: 50%;  
+                right: 50%;
                 right: calc(100% - var(--div-width));
                 width: var(--div-width);
-                transition: width 1s;
+                visibility: hidden;
                 opacity: 0;
+                transition: opacity 2s linear;
             }
             #fadeButton {
-                right: 45%;
-                transition: width 1s;
+                margin: 0;
+                position: absolute;
+                top: 30%;
+                right: 50%;
+                -ms-transform: translateY(-30%), translateX(-50%);
+                transform: translateY(-30%), translateX(-50%);
+                visibility: visible;
                 opacity: 1;
+                transition: visibility 0s 2s, opacity 2s linear;
             }
             button.target {
                 z-index: 1;
                 position: absolute;
-                height: 25px;
-                width: 25px;
+                height: 50px;
+                width: 50px;
                 background-color: rgb(255, 255, 255);
                 border-radius: 50%;
                 display: inline-block;
@@ -44,27 +43,26 @@
             button.fade {
                 z-index: 1;
                 position: absolute;
-                height: 25px;
-                min-width: 25px;
                 background-color: rgb(255, 255, 255);
-                display: inline-block;
-            }
-            .dot{
-                
+                width: auto;
+                color: whitesmoke;
+                background-color: black;
+                outline-color: black;
             }
             .dotdot {
                 position: relative;
-                top: 5px;
-                height: 15px;
-                width: 15px;
+                height: 25px;
+                width: 25px;
                 background-color: rgb(0, 0, 0);
                 border-radius: 50%;
                 display: inline-block;
             }
             .dotdotdot {
                 position: relative;
-                height: 5px;
-                width: 5px;
+                height: 12.5px;
+                width: 12.5px;
+                top: 6px;
+                left: 1px;
                 background-color: rgb(255, 255, 255);
                 border-radius: 50%;
                 display: inline-block;
@@ -74,10 +72,9 @@
     </head>
     <body>  
         <div id="fadeButton" style="text-align: center;">
-            <h1 style="text-align: center;color: whitesmoke;">Hi there :)</h1>
-            <button class="fade">Start game</button>
+                <button class="fade">Hi there :)</button>
         </div>
-        <div id="targetButton">
+        <div id="targetButton" style="text-align: center;">
             <button class="target"><span class="dot"><span class="dotdot"><span class="dotdotdot"></span></span></span></button>
         </div>
         <script type="text/javascript">
@@ -104,11 +101,11 @@
 
             fadeButton.addEventListener("click", () => {
                 fadeButtonDiv.style.opacity = 0;
+                fadeButtonDiv.style.visibility = "hidden";
+                targetButtonDiv.style.top = "30%";
+                targetButtonDiv.style.right = "45%";
                 targetButtonDiv.style.opacity = 1;
-                targetButtonDiv.style.top = "50%";
-                targetButtonDiv.style.right = "50%";
-                fadeButtonDiv.style.top = 9999 + "px";
-                fadeButtonDiv.style.right = 9999 + "px";
+                targetButtonDiv.style.visibility = "visible";
             });
         </script>    
     </body>
