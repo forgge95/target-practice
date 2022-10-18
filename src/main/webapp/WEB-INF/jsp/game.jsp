@@ -6,19 +6,25 @@
                 background-color: black;
                 opacity: 0.8;
             }
+            #headerOpacity{
+                color: white; 
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 2s linear;
+
+            }
             #targetButton {
                 --div-width: 100px;
                 position: absolute;
                 background-color: coral;
                 color: white;
-                transition: .5s top, .5s right;
                 top: 50%;  
-                right: 50%;
+                right: 45%;
                 right: calc(100% - var(--div-width));
                 width: var(--div-width);
                 visibility: hidden;
                 opacity: 0;
-                transition: opacity 2s linear;
+                transition: opacity 2s linear, .5s top, .5s right;
             }
             #fadeButton {
                 margin: 0;
@@ -71,6 +77,7 @@
         <title>Game</title>
     </head>
     <body>  
+        <h1 id="headerOpacity">hits: 0</h1>
         <div id="fadeButton" style="text-align: center;">
                 <button class="fade">Hi there :)</button>
         </div>
@@ -80,12 +87,12 @@
         <script type="text/javascript">
             const targetButton = document.querySelector(".target");
             const fadeButton = document.querySelector(".fade");
-
             const height = document.documentElement.clientHeight;
             const width = document.documentElement.clientWidth;
             const targetButtonDiv = document.getElementById("targetButton");
             const fadeButtonDiv = document.getElementById("fadeButton");
-
+            const header = document.getElementById("headerOpacity");
+            var counter = 0;
             targetButton.addEventListener("click", () => {
                 let randY = Math.floor((Math.random() * height) -100);
                 let randX = Math.floor((Math.random() * width) -100);
@@ -97,6 +104,8 @@
                 }
                 targetButtonDiv.style.top = randY + "px";
                 targetButtonDiv.style.right = randX + "px";
+                counter++;
+                header.textContent = 'hits: ' + counter;
             });
 
             fadeButton.addEventListener("click", () => {
@@ -106,6 +115,8 @@
                 targetButtonDiv.style.right = "45%";
                 targetButtonDiv.style.opacity = 1;
                 targetButtonDiv.style.visibility = "visible";
+                header.style.opacity = 1;
+                header.style.visibility = "visible";
             });
         </script>    
     </body>
