@@ -10,4 +10,8 @@ public class GameController {
     public String gameInitialisor(){
         return "game";
     }
+    @PostMapping({"/","/game"})
+    public String gameRegistered(){
+        return "game";
+    }
 }
