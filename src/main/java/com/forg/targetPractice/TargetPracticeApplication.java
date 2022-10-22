@@ -15,5 +15,4 @@ public class TargetPracticeApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(TargetPracticeApplication.class, args);
 	}
-
 }

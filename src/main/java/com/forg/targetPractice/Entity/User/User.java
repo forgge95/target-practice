@@ -1,4 +1,4 @@
-package com.forg.targetPractice.User;
+package com.forg.targetPractice.Entity.User;
 
 import javax.persistence.*;
  

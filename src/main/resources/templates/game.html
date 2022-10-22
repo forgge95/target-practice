@@ -18,9 +18,9 @@
                 position: absolute;
                 background-color: coral;
                 color: white;
-                top: 50%;  
-                right: 45%;
-                right: calc(100% - var(--div-width));
+                top: 30%;  
+                right: 46.7%;
+                /* right: calc(100% - var(--div-width)); */
                 width: var(--div-width);
                 visibility: hidden;
                 opacity: 0;
@@ -116,8 +116,8 @@
             fadeButton.addEventListener("click", () => {
                 fadeButtonDiv.style.opacity = 0;
                 fadeButtonDiv.style.visibility = "hidden";
-                targetButtonDiv.style.top = "30%";
-                targetButtonDiv.style.right = "45%";
+                // targetButtonDiv.style.top = "30%";
+                // targetButtonDiv.style.right = "47%";
                 targetButtonDiv.style.opacity = 1;
                 targetButtonDiv.style.visibility = "visible";
                 header.style.opacity = 1;

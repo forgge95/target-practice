@@ -1,4 +1,4 @@
-package com.forg.targetPractice.User;
+package com.forg.targetPractice;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.forg.targetPractice.Entity.User.User;
+import com.forg.targetPractice.Entity.User.UserRepository;
 
 @Controller
 public class AppController {

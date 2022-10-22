@@ -1,13 +1,13 @@
-HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 .vscode/
 src/main/java/com/forg/targetPractice/TestController.java
-src/main/webapp/WEB-INF/jsp/test.jsp
+src/main/webapp/WEB-INF/jsp/
 src/main/webapp/WEB-INF/css/
 src/main/webapp/WEB-INF/script/
 src/test/
 src/main/resources/css/
 src/main/resources/script/
+src/main/resources/application.properties
