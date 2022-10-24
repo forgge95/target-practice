@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Sign Up - CodeJava</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -11,10 +11,9 @@
     <div class="container text-center">
 
         <div>
-            <h1>Test Sign Up</h1><br>
-            <h1 th:text="${user}"></h1>
+            <h1>Sign Up</h1><br>
         </div>
-        <form th:action="@{/registration}" th:object="${user}"
+        <form th:action="@{/userRegistration}" th:object="${user}"
             method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="m-3">
             <div class="form-group row">

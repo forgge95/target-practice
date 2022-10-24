@@ -19,7 +19,22 @@ public class User {
     @Column(name = "login", nullable = false, length = 20)
     private String login;
 
-     
+    @Column(name = "highscore", nullable = true)
+    private long highscore;
+    @Transient
+    private String validation;
+    public String getValidation() {
+        return validation;
+    }
+    public void setValidation(String validation) {
+        this.validation = validation;
+    }
+    public long getHighscore() {
+        return highscore;
+    }
+    public void setHighscore(long highscore) {
+        this.highscore = highscore;
+    }
     public String getEmail() {
         return email;
     }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.forg.targetPractice.Entity.User.User;
 import com.forg.targetPractice.Entity.User.UserRepository;
+import com.forg.targetPractice.Entity.User.Services.LoginValidation;
 
 @Controller
 public class AppController {
@@ -23,21 +24,15 @@ public class AppController {
         return "index";
     }
 
-    @GetMapping("/registration")
+    @GetMapping("/userRegistration")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
-        
         return "registration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/userRegistration")
     public String processRegister(User user) {
-        // BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        // String encodedPassword = passwordEncoder.encode(user.getPassword());
-        // user.setPassword(encodedPassword);
-        
-        userRepo.save(user);
-        
+        userRepo.save(user);       
         return "registration_success";
     }
     @GetMapping("/users")
@@ -46,5 +41,19 @@ public class AppController {
         model.addAttribute("listUsers", listUsers);
         
         return "users";
+    }
+    @GetMapping("/userLogin")
+    public String showLoginForm(Model model){
+        model.addAttribute("user", new User());
+        return "login";
+    }
+    @PostMapping("/userLogin")
+    public String validateLoginProcess(User user, Model model){
+        LoginValidation validator = new LoginValidation();
+        if(validator.validate(user, userRepo)){
+            return "game";
+        }
+        model.addAttribute("successfulLogin", false);
+        return "login";
     }
 }
