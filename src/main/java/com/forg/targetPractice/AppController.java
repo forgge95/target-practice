@@ -1,6 +1,8 @@
 package com.forg.targetPractice;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,12 +37,15 @@ public class AppController {
         userRepo.save(user);       
         return "registration_success";
     }
-    @GetMapping("/users")
+    @GetMapping("/highscores")
     public String listUsers(Model model) {
-        List<User> listUsers = userRepo.findAll();
+        List<User> listUsers = userRepo.findAll().stream()
+            .filter(x -> x.getHighscore()>0)
+            .sorted(Comparator.comparing(User::getHighscore).reversed())
+            .collect(Collectors.toList());
         model.addAttribute("listUsers", listUsers);
         
-        return "users";
+        return "highscores";
     }
     @GetMapping("/userLogin")
     public String showLoginForm(Model model){
