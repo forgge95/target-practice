@@ -6,12 +6,35 @@
                 background-color: black;
                 opacity: 0.8;
             }
-            #headerOpacity{
-                color: white; 
+            #counterHeader{
+                color: whitesmoke; 
                 opacity: 0;
                 visibility: hidden;
+                position: absolute;
+                top: 5%;
+                left: 5%;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
                 transition: opacity 2s linear;
-
+            }
+            #timerHeader{
+                color: whitesmoke; 
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                top: 5%;
+                right: 5%;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                transition: opacity 2s linear;
             }
             #targetButton {
                 --div-width: 100px;
@@ -20,7 +43,6 @@
                 color: white;
                 top: 30%;  
                 right: 46.7%;
-                /* right: calc(100% - var(--div-width)); */
                 width: var(--div-width);
                 visibility: hidden;
                 opacity: 0;
@@ -82,7 +104,8 @@
         <title>Game</title>
     </head>
     <body>  
-        <h1 id="headerOpacity">hits: 0</h1>
+        <h3 id="counterHeader">Hits: 0</h3>
+        <p id="timerHeader">01:00</p>
         <div id="fadeButton" style="text-align: center;">
                 <button class="fade">Start</button>
         </div>
@@ -96,32 +119,33 @@
             const width = document.documentElement.clientWidth;
             const targetButtonDiv = document.getElementById("targetButton");
             const fadeButtonDiv = document.getElementById("fadeButton");
-            const header = document.getElementById("headerOpacity");
+            const count = document.getElementById("counterHeader");
+            const time = document.getElementById("timerHeader");
             var counter = 0;
             targetButton.addEventListener("click", () => {
-                let randY = Math.floor((Math.random() * height) -100);
-                let randX = Math.floor((Math.random() * width) -100);
+                let randY = Math.floor((Math.random() * height) -300);
+                let randX = Math.floor((Math.random() * width) -300);
                 if (randY < 0) {
-                    randY = randY+ 100;
+                    randY = randY + 500;
                 }
                 if (randX < 0) {
-                    randX = randX+ 100;
+                    randX = randX + 500;
                 }
                 targetButtonDiv.style.top = randY + "px";
                 targetButtonDiv.style.right = randX + "px";
                 counter++;
-                header.textContent = 'hits: ' + counter;
+                count.textContent = 'Hits: ' + counter;
             });
 
             fadeButton.addEventListener("click", () => {
                 fadeButtonDiv.style.opacity = 0;
                 fadeButtonDiv.style.visibility = "hidden";
-                // targetButtonDiv.style.top = "30%";
-                // targetButtonDiv.style.right = "47%";
                 targetButtonDiv.style.opacity = 1;
                 targetButtonDiv.style.visibility = "visible";
-                header.style.opacity = 1;
-                header.style.visibility = "visible";
+                count.style.opacity = 1;
+                count.style.visibility = "visible";
+                time.style.opacity = 1;
+                time.style.visibility = "visible";
             });
         </script>    
     </body>
