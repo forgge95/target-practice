@@ -59,4 +59,16 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    @Override
+    public String toString() {
+        return "[" + getId() +"; "+ getEmail() + "; "+ getLogin() + "]";
+    }
+    @Override
+    public int hashCode() {
+        return getId().hashCode()+getLogin().hashCode()+getEmail().hashCode();
+    }
+    @Override
+    public boolean equals(Object arg0) {
+        return getLogin().equals(arg0) && getEmail().equals(arg0);
+    }
 }
