@@ -61,7 +61,7 @@ public class User {
     }
     @Override
     public String toString() {
-        return "[" + getId() +"; "+ getEmail() + "; "+ getLogin() + "]";
+        return "[" + getId() +"; "+ getEmail() + "; "+ getLogin() +"; "+ getHighscore() + "]";
     }
     @Override
     public int hashCode() {

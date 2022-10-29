@@ -122,6 +122,19 @@
             const count = document.getElementById("counterHeader");
             const time = document.getElementById("timerHeader");
             var counter = 0;
+            var seconds=60;
+            var timer;
+            function myFunction() {
+                if(seconds < 60) { // I want it to say 1:00, not 60
+                    time.innerHTML = seconds;
+                }
+                if (seconds >0 ) { // so it doesn't go to -1
+                    seconds--;
+                } else {
+                    clearInterval(timer);
+                    alert("You type X WPM");
+                }
+            }
             targetButton.addEventListener("click", () => {
                 let randY = Math.floor((Math.random() * height) -300);
                 let randX = Math.floor((Math.random() * width) -300);
@@ -146,6 +159,11 @@
                 count.style.visibility = "visible";
                 time.style.opacity = 1;
                 time.style.visibility = "visible";
+                if(!timer) {
+                    timer = window.setInterval(function() { 
+                        myFunction();
+                    }, 1000); // every second
+                }
             });
         </script>    
     </body>
