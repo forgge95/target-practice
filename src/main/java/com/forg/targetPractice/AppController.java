@@ -61,4 +61,9 @@ public class AppController {
         model.addAttribute("successfulLogin", false);
         return "login";
     }
+
+    @PostMapping("/game/processHighscore")
+    public String processHighscore(){
+        return "processHighscore";
+    }
 }
