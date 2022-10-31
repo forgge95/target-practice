@@ -3,15 +3,15 @@
     <head>
         <style>
             body{
-                background-color: black;
-                opacity: 0.8; 
+              background-color: #121212;
+              font-family: 'Brush Script MT', cursive;
             }
             #streakAnuller{
                 z-index: 0;
                 position: absolute;
-                background-color: black;
-                width: 100%;
-                height: 100%;
+                background-color: #121212;
+                width: 98%;
+                height: 94%;
                 margin: auto;
             }
             #hitsHeader{
@@ -67,18 +67,20 @@
                 --div-width: 50px;
                 position: absolute;
                 top: 30%;  
-                right: 46.7%;
+                right: 50%;
                 width: var(--div-width);
+                margin:auto;
                 visibility: hidden;
                 opacity: 0;
                 transition: opacity 2s linear, .5s top, .5s right;
             }
             #fadeButton {
                 z-index: 4;
-                margin: 0;
+                --div-width: 50px;
                 position: absolute;
                 top: 30%;
                 right: 50%;
+                width: var(--div-width);
                 -ms-transform: translateY(-30%), translateX(-50%);
                 transform: translateY(-30%), translateX(-50%);
                 visibility: visible;
@@ -86,11 +88,11 @@
                 transition: visibility 0s 2s, opacity 2s linear;
             }
             button.target {
-                z-index: 4;
+                z-index: 10;
                 position: absolute;
-                height: 50px;
-                width: 50px;
-                background-color: rgb(255, 255, 255);
+                height: 48px;
+                width: 48px;
+                background-color:  rgb(136, 16, 16);
                 border-radius: 50%;
                 display: inline-block;
                 
@@ -101,28 +103,29 @@
             button.fade {
                 z-index: 4;
                 position: absolute;
-                background-color: rgb(255, 255, 255);
+                background-color: #121212;
                 color: whitesmoke;
-                background-color: black;
-                outline-color: black;
+                background-color: #121212;
                 outline: none;
                 border: none;
+                font-family: 'Brush Script MT', cursive;
             }
             .dotdot {
                 position: relative;
-                height: 25px;
-                width: 25px;
+                height: 24px;
+                width: 24px;
+                margin-left: auto;
                 background-color: rgb(0, 0, 0);
                 border-radius: 50%;
                 display: inline-block;
             }
             .dotdotdot {
                 position: relative;
-                height: 12.5px;
-                width: 12.5px;
-                top: 6px;
-                left: 1px;
-                background-color: rgb(255, 255, 255);
+                height: 12px;
+                width: 12px;
+                margin-left: auto;
+                top: 25%;
+                background-color: rgb(139, 63, 63);
                 border-radius: 50%;
                 display: inline-block;
             }
