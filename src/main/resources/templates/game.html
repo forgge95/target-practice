@@ -1,140 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            body{
-              background-color: #121212;
-              font-family: 'Brush Script MT', cursive;
-            }
-            #streakAnuller{
-                z-index: 0;
-                position: absolute;
-                background-color: #121212;
-                width: 98%;
-                height: 94%;
-                margin: auto;
-            }
-            #hitsHeader{
-                z-index: 5;
-                color: whitesmoke; 
-                opacity: 0;
-                visibility: hidden;
-                position: absolute;
-                top: 5%;
-                left: 5%;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                transition: opacity 2s linear;
-            }
-            #timerHeader{
-                z-index: 5;
-                color: whitesmoke; 
-                opacity: 0;
-                visibility: hidden;
-                position: absolute;
-                top: 5%;
-                right: 5%;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                transition: opacity 2s linear;
-            }
-            #scoreHeader{
-                z-index: 5;
-                color: whitesmoke; 
-                opacity: 0;
-                visibility: hidden;
-                position: absolute;
-                top: 10%;
-                left: 5%;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                transition: opacity 2s linear;
-            }
-            #targetButton {
-                z-index: 4;
-                --div-width: 50px;
-                position: absolute;
-                top: 30%;  
-                right: 50%;
-                width: var(--div-width);
-                margin:auto;
-                visibility: hidden;
-                opacity: 0;
-                transition: opacity 2s linear, .5s top, .5s right;
-            }
-            #fadeButton {
-                z-index: 4;
-                --div-width: 50px;
-                position: absolute;
-                top: 30%;
-                right: 50%;
-                width: var(--div-width);
-                -ms-transform: translateY(-30%), translateX(-50%);
-                transform: translateY(-30%), translateX(-50%);
-                visibility: visible;
-                opacity: 1;
-                transition: visibility 0s 2s, opacity 2s linear;
-            }
-            button.target {
-                z-index: 10;
-                position: absolute;
-                height: 48px;
-                width: 48px;
-                background-color:  rgb(136, 16, 16);
-                border-radius: 50%;
-                display: inline-block;
-                
-            }
-            button.target:active{
-                border-style: outset;
-            }
-            button.fade {
-                z-index: 4;
-                position: absolute;
-                background-color: #121212;
-                color: whitesmoke;
-                background-color: #121212;
-                outline: none;
-                border: none;
-                font-family: 'Brush Script MT', cursive;
-            }
-            .dotdot {
-                position: relative;
-                height: 24px;
-                width: 24px;
-                margin-left: auto;
-                background-color: rgb(0, 0, 0);
-                border-radius: 50%;
-                display: inline-block;
-            }
-            .dotdotdot {
-                position: relative;
-                height: 12px;
-                width: 12px;
-                margin-left: auto;
-                top: 25%;
-                background-color: rgb(139, 63, 63);
-                border-radius: 50%;
-                display: inline-block;
-            }
-        </style>
-        
-        <title>Game</title>
+        <link th:href="@{css/game.css}" rel="stylesheet">
+        <title>Target Game</title>
     </head>
     <body>
-        
             <h3 id="hitsHeader">
                 Hits: 0
             </h3>
@@ -143,82 +13,13 @@
                 Score: 0
             </h3>
             <p id="timerHeader">01:00</p>
-            
         <div id="fadeButton" style="text-align: center;">
             <button class="fade">Start</button>
         </div>
         <div id="targetButton" style="text-align: center;">
             <button class="target"><span class="dot"><span class="dotdot"><span class="dotdotdot"></span></span></span></button>
         </div>
-        <div id="streakAnuller">
-
-        </div>
-        <script type="text/javascript">
-            const targetButton = document.querySelector(".target");
-            const fadeButton = document.querySelector(".fade");
-
-            const height = document.documentElement.clientHeight-100;
-            const width = document.documentElement.clientWidth-100;
-
-            const targetButtonDiv = document.getElementById("targetButton");
-            const fadeButtonDiv = document.getElementById("fadeButton");
-
-            const hitsCounter = document.getElementById("hitsHeader");
-            const scoreCounter = document.getElementById("scoreHeader");
-            const timeCounter = document.getElementById("timerHeader");
-
-            var score = 0;
-            var counter = 0;
-            var seconds=60;
-            var timer;
-            var streak = 0;
-
-            function startTimer() {
-                if(seconds < 60) { 
-                    timeCounter.innerHTML = seconds;
-                }
-                if (seconds >0 ) { 
-                    seconds--;
-                } else {
-                    clearInterval(timer);
-                }
-            }
-            function scoreCalculator(){
-                score += 10+streak;
-                streak++;
-                counter++;
-                scoreCounter.innerHTML = 'Score: ' + score;
-                hitsCounter.textContent = 'Hits: ' + counter;
-            }
-            document.getElementById("streakAnuller").addEventListener("click",() => {
-                streak = 0;
-            });
-            targetButton.addEventListener("click", () => {
-                let randY = Math.floor((Math.random() * height));
-                let randX = Math.floor((Math.random() * width));
-                
-                targetButtonDiv.style.top = randY + "px";
-                targetButtonDiv.style.right = randX + "px";
-                scoreCalculator();
-            });
-
-            fadeButton.addEventListener("click", () => {
-                fadeButtonDiv.style.opacity = 0;
-                fadeButtonDiv.style.visibility = "hidden";
-                targetButtonDiv.style.opacity = 1;
-                targetButtonDiv.style.visibility = "visible";
-                hitsCounter.style.opacity = 1;
-                hitsCounter.style.visibility = "visible";
-                timeCounter.style.opacity = 1;
-                timeCounter.style.visibility = "visible";
-                scoreCounter.style.opacity = 1;
-                scoreCounter.style.visibility = "visible";
-                if(!timer) {
-                    timer = window.setInterval(function() { 
-                        startTimer();
-                    }, 1000); 
-                }
-            });
-        </script>    
+        <div id="streakAnuller"></div>
+        <script type="text/javascript" th:src="@{/js/buttons.js}"></script>    
     </body>
 </html>
