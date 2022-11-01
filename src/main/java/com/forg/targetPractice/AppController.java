@@ -69,10 +69,10 @@ public class AppController {
 
     
     @ResponseBody
-    @GetMapping("/game/processHighscore/{id}&{score}")
+    @GetMapping("/game/processHighscore/{score}&{id}")
     @ResponseStatus(value = HttpStatus.OK)
     @Transactional
-    public void processHighscore(@PathVariable(value = "id") long id, @PathVariable(value = "score") long score ) 
+    public void processHighscore(@PathVariable(value = "score") long score, @PathVariable(value = "id") long id) 
     {
         userRepo.setHighscore((long)score , (long)id);
     }

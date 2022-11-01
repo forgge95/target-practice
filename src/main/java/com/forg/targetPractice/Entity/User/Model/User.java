@@ -1,21 +1,21 @@
 package com.forg.targetPractice.Entity.User.Model;
 
 import javax.persistence.*;
- 
+
 @Entity
 @Table(name = "users")
 public class User {
-     
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-     
+
     @Column(nullable = false, unique = true, length = 45)
     private String email;
-     
+
     @Column(nullable = false, length = 64)
     private String password;
-     
+
     @Column(name = "login", nullable = false, length = 20)
     private String login;
 
@@ -61,11 +61,11 @@ public class User {
     }
     @Override
     public String toString() {
-        return "[" + getId() +"; "+ getEmail() + "; "+ getLogin() +"; "+ getHighscore() + "]";
+        return "[" + getId() + "; " + getEmail() + "; " + getLogin() + "; " + getHighscore() + "]";
     }
     @Override
     public int hashCode() {
-        return getId().hashCode()+getLogin().hashCode()+getEmail().hashCode();
+        return getId().hashCode() + getLogin().hashCode() + getEmail().hashCode();
     }
     @Override
     public boolean equals(Object arg0) {

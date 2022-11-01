@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link th:href="@{css/game.css}" rel="stylesheet">
-        <title>Target Game</title>
-    </head>
-    <body>
-            <!-- <p th:text="${user}"></p> -->
-            <h3 id="hitsHeader">
-                Hits: 0
-            </h3>
-            <br/>
-            <h3 id="scoreHeader">
-                Score: 0
-            </h3>
-            <p id="timerHeader">01:00</p>
-        <div id="fadeButton" style="text-align: center;">
-            <button class="fade">Start</button>
-        </div>
-        <div id="targetButton" style="text-align: center;">
-            <button class="target"><span class="dot"><span class="dotdot"><span class="dotdotdot"></span></span></span></button>
-        </div>
-        <div id="streakAnuller"></div>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript" th:src="@{/js/buttons.js}"></script>    
-    </body>
+
+<head>
+    <link th:href="@{css/game.css}" rel="stylesheet">
+    <title>Target Game</title>
+</head>
+
+<body>
+    <!-- <p th:text="${user}"></p> -->
+    <h3 id="hitsHeader">
+        Hits: 0
+    </h3>
+    <br />
+    <h3 id="scoreHeader">
+        Score: 0
+    </h3>
+    <p id="timerHeader">01:00</p>
+    <div id="fadeButton" style="text-align: center;">
+        <button class="fade">Start</button>
+    </div>
+    <div id="targetButton" style="text-align: center;">
+        <button class="target"><span class="dot"><span class="dotdot"><span class="dotdotdot"></span></span></span></button>
+    </div>
+    <div id="streakAnuller"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/buttons.js}"></script>
+</body>
+
 </html>

@@ -1,125 +1,136 @@
-body{
+body {
     background-color: #121212;
     font-family: 'Brush Script MT', cursive;
-  }
-  #streakAnuller{
-      z-index: 0;
-      position: absolute;
-      background-color: #121212;
-      width: 98%;
-      height: 94%;
-      margin: auto;
-  }
-  #hitsHeader{
-      z-index: 5;
-      color: whitesmoke; 
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: 5%;
-      left: 5%;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      transition: opacity 2s linear;
-  }
-  #timerHeader{
-      z-index: 5;
-      color: whitesmoke; 
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: 5%;
-      right: 5%;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      transition: opacity 2s linear;
-  }
-  #scoreHeader{
-      z-index: 5;
-      color: whitesmoke; 
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: 10%;
-      left: 5%;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      transition: opacity 2s linear;
-  }
-  #targetButton {
-      z-index: 4;
-      position: absolute;
-      top: 50%;  
-      right: 50%;
-      width: 48px;
-      height: 48px;
-      margin:auto;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 2s linear, .5s top, .5s right;
-  }
-  #fadeButton {
-      z-index: 4;
-      position: absolute;
-      width: 99%;
-      height: 94%;
-      -ms-transform: translateY(-30%), translateX(-50%);
-      transform: translateY(-30%), translateX(-50%);
-      visibility: visible;
-      opacity: 1;
-      transition: visibility 0s 2s, opacity 2s linear;
-  }
-  button.target {
-      z-index: 10;
-      position: absolute;
-      height: 48px;
-      width: 48px;
-      background-color:  rgb(136, 16, 16);
-      border-radius: 50%;
-      display: inline-block;
-      
-  }
-  button.target:active{
-      border-style: outset;
-  }
-  button.fade {
-      z-index: 9;
-      width: 100%;
-      height: 100%;
-      color: whitesmoke;
-      background-color: #121212;
-      outline: none;
-      border: none;
-      font-family: 'Brush Script MT', cursive;
-  }
-  .dotdot {
-      position: relative;
-      height: 24px;
-      width: 24px;
-      margin-left: auto;
-      background-color: rgb(0, 0, 0);
-      border-radius: 50%;
-      display: inline-block;
-  }
-  .dotdotdot {
-      position: relative;
-      height: 12px;
-      width: 12px;
-      margin-left: auto;
-      top: 25%;
-      background-color: rgb(139, 63, 63);
-      border-radius: 50%;
-      display: inline-block;
-  }
+}
+
+#streakAnuller {
+    z-index: 0;
+    position: absolute;
+    background-color: #121212;
+    width: 98%;
+    height: 94%;
+    margin: auto;
+}
+
+#hitsHeader {
+    z-index: 5;
+    color: whitesmoke;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: opacity 2s linear;
+}
+
+#timerHeader {
+    z-index: 5;
+    color: whitesmoke;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: opacity 2s linear;
+}
+
+#scoreHeader {
+    z-index: 5;
+    color: whitesmoke;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: opacity 2s linear;
+}
+
+#targetButton {
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 2s linear, .5s top, .5s right;
+}
+
+#fadeButton {
+    z-index: 4;
+    position: absolute;
+    width: 99%;
+    height: 94%;
+    -ms-transform: translateY(-30%), translateX(-50%);
+    transform: translateY(-30%), translateX(-50%);
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+button.target {
+    z-index: 10;
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    background-color: rgb(136, 16, 16);
+    border-radius: 50%;
+    display: inline-block;
+
+}
+
+button.target:active {
+    border-style: outset;
+}
+
+button.fade {
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+    background-color: #121212;
+    outline: none;
+    border: none;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.dotdot {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    margin-left: auto;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dotdotdot {
+    position: relative;
+    height: 12px;
+    width: 12px;
+    margin-left: auto;
+    top: 25%;
+    background-color: rgb(139, 63, 63);
+    border-radius: 50%;
+    display: inline-block;
+}
