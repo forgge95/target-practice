@@ -27,17 +27,35 @@ function startTimer() {
         seconds--;
     } else {
         clearInterval(timer);
-        // fetch("http://localhost:8080/game/processHighscore", {
-        //     method: "POST",
-        //     headers: {'Content-Type': 'application/json'}, 
-        //     body: {
-        //         "score":1,
-        //         "id":1
-        //     }
-        //   });
+        sendHS(2);
         clearGame();
     }
 }
+
+function sendHS(id){
+    var tempId = id;
+    var tempScore = score;
+    $.ajax({
+        type : "GET",
+        url : "/game/processHighscore/"+id+"&"+score,
+        data : {
+            id:tempId,
+            score:tempScore
+        },
+        timeout : 1000,
+        success : function(id) {
+            console.log("success");
+        },
+        error : function(e) {
+            console.log("error: " + e);   
+
+        },
+        done : function(e) {
+            console.log("done");
+        }
+    });
+}
+
 function scoreCalculator(){
     score += 10+streak;
     streak++;

@@ -8,17 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.forg.targetPractice.Entity.User.Model.User;
-import com.forg.targetPractice.Entity.User.Model.UserScore;
 import com.forg.targetPractice.Entity.User.Services.LoginValidation;
 import com.forg.targetPractice.Entity.User.Services.UserRepository;
 
@@ -69,16 +67,14 @@ public class AppController {
         return "login";
     }
 
-    @PostMapping("/game/processHighscore")
+    
+    @ResponseBody
+    @GetMapping("/game/processHighscore/{id}&{score}")
     @ResponseStatus(value = HttpStatus.OK)
-    public void processHighscore(@RequestBody String highscore) 
-        throws JsonMappingException, JsonProcessingException
+    @Transactional
+    public void processHighscore(@PathVariable(value = "id") long id, @PathVariable(value = "score") long score ) 
     {
-        ObjectMapper objectMapper = new ObjectMapper();
-        UserScore userScore = objectMapper.readValue(highscore, UserScore.class);
-        
-        System.out.println(userScore.getScore() + " : " + userScore.getId());
-        userRepo.setHighscore(userScore.getScore() , userScore.getId());
+        userRepo.setHighscore((long)score , (long)id);
     }
 
     @GetMapping({"/game"})

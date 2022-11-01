@@ -5,7 +5,7 @@
         <title>Target Game</title>
     </head>
     <body>
-            <p th:text="${user}"></p>
+            <!-- <p th:text="${user}"></p> -->
             <h3 id="hitsHeader">
                 Hits: 0
             </h3>
@@ -21,6 +21,7 @@
             <button class="target"><span class="dot"><span class="dotdot"><span class="dotdotdot"></span></span></span></button>
         </div>
         <div id="streakAnuller"></div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type="text/javascript" th:src="@{/js/buttons.js}"></script>    
     </body>
 </html>
