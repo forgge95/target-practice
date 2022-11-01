@@ -2,8 +2,7 @@ package com.forg.targetPractice.Entity.User.Services;
 
 import org.springframework.stereotype.Service;
 
-import com.forg.targetPractice.Entity.User.User;
-import com.forg.targetPractice.Entity.User.UserRepository;
+import com.forg.targetPractice.Entity.User.Model.User;
 
 @Service
 public class LoginValidation{

@@ -27,6 +27,14 @@ function startTimer() {
         seconds--;
     } else {
         clearInterval(timer);
+        // fetch("http://localhost:8080/game/processHighscore", {
+        //     method: "POST",
+        //     headers: {'Content-Type': 'application/json'}, 
+        //     body: {
+        //         "score":1,
+        //         "id":1
+        //     }
+        //   });
         clearGame();
     }
 }
