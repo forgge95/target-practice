@@ -60,11 +60,12 @@ public class AppController {
     @PostMapping("/userLogin")
     public String validateLoginProcess(User user, Model model){
         LoginValidation validator = new LoginValidation();
-        if(validator.validate(user, userRepo)){
-            return "game";
+        User validatedUser = validator.validate(user, userRepo);
+        if(validatedUser!=null){
+            return gameInitialisor(validatedUser, model);
         }
         model.addAttribute("successfulLogin", false);
-        return "login";
+        return showLoginForm(model);
     }
 
     

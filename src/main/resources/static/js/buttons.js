@@ -11,9 +11,10 @@ const hitsCounter = document.getElementById("hitsHeader");
 const scoreCounter = document.getElementById("scoreHeader");
 const timeCounter = document.getElementById("timerHeader");
 
+var userId;
 var score = 0;
 var counter = 0;
-var seconds = 60;
+var seconds = 5;
 var timer;
 var streak = 0;
 
@@ -27,7 +28,10 @@ function startTimer() {
         seconds--;
     } else {
         clearInterval(timer);
-        sendHS(2);
+        if(userId>-1){
+            console.log('sending highscore');
+            sendHS(userId);
+        }
         clearGame();
     }
 }
@@ -89,6 +93,7 @@ function startGame() {
     document.getElementById("streakAnuller").addEventListener("click", () => {
         streak = 0;
     });
+    userId = document.getElementById("test").textContent;
 }
 
 function targetButtonEvList() {

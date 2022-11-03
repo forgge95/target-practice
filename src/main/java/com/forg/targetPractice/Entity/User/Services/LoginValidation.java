@@ -6,22 +6,22 @@ import com.forg.targetPractice.Entity.User.Model.User;
 
 @Service
 public class LoginValidation {
-    public boolean validate(User user, UserRepository userRepo) {
+    public User validate(User user, UserRepository userRepo) {
 
         User existingUser = userRepo.findByEmail(user.getValidation());
 
         if (existingUser != null) {
             if (existingUser.getPassword().equals(user.getPassword())) {
-                return true;
+                return existingUser;
             }
         } else {
             existingUser = userRepo.findByLogin(user.getValidation());
             if (existingUser != null) {
                 if (existingUser.getPassword().equals(user.getPassword())) {
-                    return true;
+                    return existingUser;
                 }
             }
         }
-        return false;
+        return null;
     }
 }
