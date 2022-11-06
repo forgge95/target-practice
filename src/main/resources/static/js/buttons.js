@@ -39,25 +39,27 @@ function startTimer() {
 function sendHS(id) {
     var tempId = id;
     var tempScore = score;
-    $.ajax({
-        type: "GET",
-        url: "/game/processHighscore/" + score + "&" + id,
-        data: {
-            score: tempScore,
-            id: tempId
-        },
-        timeout: 1000,
-        success: function(id) {
-            console.log("success");
-        },
-        error: function(e) {
-            console.log("error: " + e);
-
-        },
-        done: function(e) {
-            console.log("done");
-        }
-    });
+    if(id>0){
+        $.ajax({
+            type: "GET",
+            url: "/game/processHighscore/" + score + "&" + id,
+            data: {
+                score: tempScore,
+                id: tempId
+            },
+            timeout: 1000,
+            success: function(id) {
+                console.log("success");
+            },
+            error: function(e) {
+                console.log("error: " + e);
+    
+            },
+            done: function(e) {
+                console.log("done");
+            }
+        });
+    }
 }
 
 function scoreCalculator() {
