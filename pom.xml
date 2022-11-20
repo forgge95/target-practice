@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.forg</groupId>
-	<artifactId>login-practice</artifactId>
+	<artifactId>target</artifactId>
 	<version>1.0</version>
 	<name>target-practice</name>
 	<description>Target practice game on Spring</description>
