@@ -62,7 +62,7 @@ public class AppController {
         LoginValidation validator = new LoginValidation();
         User validatedUser = validator.validate(user, userRepo);
         if(validatedUser!=null){
-            return gameInitialisor(validatedUser, model);
+            return gameInitializer(validatedUser, model);
         }
         model.addAttribute("successfulLogin", false);
         return showLoginForm(model);
@@ -79,7 +79,7 @@ public class AppController {
     }
 
     @GetMapping({"/game"})
-    public String gameInitialisor(User user, Model model){
+    public String gameInitializer(User user, Model model){
         model.addAttribute("user", user);
         return "game";
     }
